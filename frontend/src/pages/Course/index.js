@@ -28,6 +28,7 @@ export default function Course() {
     }
   }
 
+
   return (
     <div className="register-course-container">
       <div className="register-course-content">
@@ -43,7 +44,7 @@ export default function Course() {
           <h2>Register Course</h2>
 
           <div className="input-btn">
-            <input type="text" placeholder="name" value={name} onChange={e => setName(e.target.value)} />
+            <input type="text" placeholder="name" required value={name} onChange={e => setName(e.target.value)} />
             <button type="submit">Cadastrar</button>
           </div>
         </form>
