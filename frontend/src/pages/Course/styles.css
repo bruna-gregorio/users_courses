@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+
+.register-course-container {
+  height: 100vh;
+  background-color: #f5f5f5;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.register-course-container .register-course-content {
+  border: 1px solid rgba(148, 148, 148, 0.486);
+  width: 900px;
+  height: 500px;
+  background: linear-gradient(56deg, rgba(128,114,230,1) 0%, rgba(128,114,230,0.5326505602240896) 70%);
+  box-shadow: 0px 0px 20px 5px rgba(148, 148, 148, 0.308);
+  
+  display: flex;
+  justify-content: flex-end;
+
+  position: relative;
+}
+
+.register-course-content a {
+  position: absolute;
+  left: 20px;
+  top: 15px;
+}
+
+.register-course-content .text-info {
+  width: 270px;
+  position: absolute;
+  left: 25px;
+  bottom: 50px;
+}
+
+.text-info h3 {
+  font-weight: 500;
+  margin-bottom: 15px;
+  color: #fff;
+}
+
+.text-info p {
+  font-size: 14px;
+  color: #fff;
+}
+
+.register-course-container form {
+  border-left: 1px solid rgb(230, 230, 230);
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 50%;
+  width: 450px;
+  height: 100%;
+  padding: 120px 0;
+  background-color: #f5f5f5;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 70px;
+}
+
+.register-course-container form h2 {
+  font-weight: 400;
+}
+
+.register-course-container form .input-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+ 
+.register-course-container form input {
+  width: 250px;
+  height: 40px;
+  padding: 0 10px;
+  outline: none;
+  border: 1px solid rgb(153, 153, 153);
+  border-radius: 3px;
+  background-color: #f5f5f5;
+}
+
+.register-course-container form button {
+  width: 250px;
+  height: 40px;
+  border: 0;
+  outline: 0;
+  border-radius: 3px;
+  color: #fff;
+  background-color: #8072e6;
+  cursor: pointer;
+}
+
+
+@media only screen and (max-width: 930px) {
+  .register-course-container {
+    padding: 0 20px;
+  }
+}
+
+@media only screen and (max-width: 850px) {
+  .register-course-container {
+    padding: 0 20px;
+  }
+  
+  .register-course-container form {
+    width: 400px;
+    border-top-left-radius: 85%;
+    border-bottom-left-radius: 85%;
+    padding: 150px 0;
+    gap: 50px;
+  }
+
+  .register-course-container form h2 {
+    font-size: 20px;
+  }
+
+  .register-course-container form input {
+    width: 200px;
+  }
+
+  .register-course-container form button {
+    width: 200px;
+  }
+}
+
+@media only screen and (max-width: 740px) {
+
+  .register-course-container .register-course-content {
+    align-items: flex-end;
+    justify-content: center;
+  }
+  
+  .register-course-container form {
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    width: 100%;
+  }
+
+  .register-course-container form h2 {
+    font-size: 20px;
+  }
+
+  .register-course-container form input {
+    width: 200px;
+  }
+
+  .register-course-container form button {
+    width: 200px;
+  }
+
+  .register-course-content .text-info {
+    top: 60px;
+  }
+
+  .register-course-content .text-info h3 {
+    margin-bottom: 10px;
+  }
+}
