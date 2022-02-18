@@ -106,6 +106,15 @@ input[type=number] {
 
 select {
   text-transform: capitalize;
+  position: relative;
+}
+
+#courses::after {
+  position: absolute;
+  content: '';
+  top: 0;
+  right: 0;
+
 }
 
 .register-user-container form button {
@@ -117,6 +126,34 @@ select {
   color: #fff;
   background-color: #8072e6;
   cursor: pointer;
+}
+
+.input-password {
+  width: 250px;
+  height: 40px;
+  border: 1px solid rgb(153, 153, 153);
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.input-password .input-pass {
+  border: 0;
+}
+
+.input-password .btn-pass {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  /* border: 1px solid #f00; */
+  background-color: transparent;
+  transition: stroke .4s;
+}
+
+.input-password .btn-pass:hover svg {
+  stroke: rgba(0, 0, 0, 0.699);
 }
 
 

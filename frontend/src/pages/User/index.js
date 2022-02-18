@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
+import { FiEye } from "react-icons/fi"
 
 import api from "../../services/api"
 
@@ -15,6 +16,12 @@ export default function User() {
   const [course_id, setCourse_id] = useState('')
 
   const [courses, setCourses] = useState([])
+
+  const [passwordShow, setPasswordShow] = useState(false)
+
+  const togglePassword = () => {
+    setPasswordShow(!passwordShow)
+  }
 
   useEffect(() => {
     api.get('courses').then(response => {
@@ -60,13 +67,16 @@ export default function User() {
               }} />
             </div>
             <input type="email" placeholder="Email" required value={email} onChange={e => setEmail(e.target.value)} />
-            <input type="password" placeholder="Password" required value={password} onChange={e => setPassword(e.target.value)} />
+            <div className="input-password">
+              <input type={passwordShow ? "text" : "password"} className="input-pass" placeholder="Password" required value={password} onChange={e => setPassword(e.target.value)} />
+              <button type="button" className="btn-pass" onClick={togglePassword}><FiEye color="#000" /></button>
+            </div>
             <input type="text" placeholder="Photo" required value={photo} onChange={e => setPhoto(e.target.value)} />
 
             <select id="courses" value={course_id} onChange={e => setCourse_id(e.target.value)}>
               <option value="">-- Course --</option>
               {courses.map(course => (
-                <option value={course.id}>{course.name}</option>
+                <option key={course.id} value={course.id}>{course.name}</option>
               ))}
             </select>
             <button type="submit">Cadastrar</button>
