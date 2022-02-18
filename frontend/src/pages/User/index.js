@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 
 import api from "../../services/api"
@@ -13,6 +13,14 @@ export default function User() {
   const [password, setPassword] = useState('')
   const [photo, setPhoto] = useState('')
   const [course_id, setCourse_id] = useState('')
+
+  const [courses, setCourses] = useState([])
+
+  useEffect(() => {
+    api.get('courses').then(response => {
+      setCourses(response.data)
+    })
+  }, [])
 
   const navigate = useNavigate()
 
@@ -56,16 +64,10 @@ export default function User() {
             <input type="text" placeholder="Photo" required value={photo} onChange={e => setPhoto(e.target.value)} />
 
             <select id="courses" value={course_id} onChange={e => setCourse_id(e.target.value)}>
-              <option value="">Course</option>
-              <option value="3236aa63-4524-4fec-b71e-314143aa1f02">Contabilidade</option>
-              <option value="5f0daf74-3272-4dc2-bf67-6c6fa3612a63">Jornalismo</option>
-              <option value="6fb35195-661e-481e-b036-52e8bc7d273f">Enfermaria</option>
-              <option value="b435f25a-a99a-45d3-906b-1692a5a2f4c7">Advocacia</option>
-              <option value="c64295d2-5e55-485b-b0d0-c6416bfcf8d7">Engenharia</option>
-              <option value="c918a7e0-74e4-4746-9769-f6d779fe5783">Administração</option>
-              <option value="cc941e50-7f2b-4d75-90ae-835551011e1c">Odontologia</option>
-              <option value="d602cd10-7d3e-417c-82d7-0eef265b2cc6">Ciências da computação</option>
-              <option value="ed7b92bc-d10f-4ace-8926-b3ac3e2b903c">Medicina</option>
+              <option value="">-- Course --</option>
+              {courses.map(course => (
+                <option value={course.id}>{course.name}</option>
+              ))}
             </select>
             <button type="submit">Cadastrar</button>
           </div>

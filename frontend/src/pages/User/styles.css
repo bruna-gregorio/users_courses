@@ -104,6 +104,10 @@ input[type=number] {
   background-color: #f5f5f5;
 }
 
+select {
+  text-transform: capitalize;
+}
+
 .register-user-container form button {
   width: 250px;
   height: 40px;
