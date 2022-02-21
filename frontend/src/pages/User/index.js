@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { FiEye, FiEyeOff, FiChevronDown } from "react-icons/fi"
-import Select from "react-select"
+import { FiEye, FiEyeOff } from "react-icons/fi"
 
 import api from "../../services/api"
 
