@@ -15,6 +15,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  min-height: 100vh;
+  overflow: hidden;
 }
 
 .courses-container:before {
@@ -26,6 +29,8 @@
   height: 50px;
   background-color: #8072e6;
   clip-path: circle(36.1% at 50% 50%);
+
+  animation: showCircleRight 1.8s;
 }
 
 .courses-container:after {
@@ -37,6 +42,8 @@
   height: 300px;
   background-color: #8072e6;
   clip-path: circle(50% at 7% 89%);
+
+  animation: showCircleLeft 1.8s;
 }
 
 .courses-container a {
@@ -51,6 +58,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  animation: showBtn 1.2s;
 }
 
 .courses-container a .btn {
@@ -62,6 +71,8 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
+
+  animation: showUp 1.2s;
 }
 
 li {
@@ -119,6 +130,42 @@ li {
   border-radius: 25px;
   border-bottom-right-radius: 7px;
   border-top-right-radius: 0px;
+}
+
+@keyframes showUp {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes showBtn {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes showCircleLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes showCircleRight {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 
 

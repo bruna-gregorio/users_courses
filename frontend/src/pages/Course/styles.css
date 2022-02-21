@@ -21,6 +21,8 @@
   justify-content: flex-end;
 
   position: relative;
+
+  animation: showLeft .8s;
 }
 
 .register-course-content a {
@@ -93,6 +95,15 @@
   color: #fff;
   background-color: #8072e6;
   cursor: pointer;
+}
+
+@keyframes showLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 
 

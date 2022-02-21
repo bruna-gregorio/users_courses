@@ -8,6 +8,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow-x: hidden;
 }
 
 .register-user-container .register-user-content {
@@ -21,6 +22,8 @@
   justify-content: flex-end;
 
   position: relative;
+
+  animation: showRight .8s;
 }
 
 .register-user-content .text-info {
@@ -106,15 +109,6 @@ input[type=number] {
 
 select {
   text-transform: capitalize;
-  position: relative;
-}
-
-#courses::after {
-  position: absolute;
-  content: '';
-  top: 0;
-  right: 0;
-
 }
 
 .register-user-container form button {
@@ -154,6 +148,16 @@ select {
 
 .input-password .btn-pass:hover svg {
   stroke: rgba(0, 0, 0, 0.699);
+}
+
+
+@keyframes showRight {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 
 
