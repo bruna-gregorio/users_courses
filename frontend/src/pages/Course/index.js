@@ -20,7 +20,7 @@ export default function Course() {
     try {
       await api.post('courses', data)
 
-      alert("Success")
+      alert("Sucesso")
 
       navigate('/courses')
     } catch (err) {
