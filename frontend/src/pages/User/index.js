@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { FiEye } from "react-icons/fi"
+import { FiEye, FiEyeOff } from "react-icons/fi"
 
 import api from "../../services/api"
 
@@ -17,11 +17,20 @@ export default function User() {
 
   const [courses, setCourses] = useState([])
 
-  const [passwordShow, setPasswordShow] = useState(false)
+  // const [passwordShow, setPasswordShow] = useState(false)
 
-  const togglePassword = () => {
-    setPasswordShow(!passwordShow)
-  }
+  // const togglePassword = () => {
+  //   setPasswordShow(!passwordShow)
+  // }
+
+  const [values, setValues] = useState({
+    password: "",
+    showPassword: false,
+  });
+
+  const handleClickShowPassword = () => {
+    setValues({ ...values, showPassword: !values.showPassword });
+  };
 
   useEffect(() => {
     api.get('courses').then(response => {
@@ -67,9 +76,18 @@ export default function User() {
               }} />
             </div>
             <input type="email" placeholder="Email" required value={email} onChange={e => setEmail(e.target.value)} />
-            <div className="input-password">
+            {/* <div className="input-password">
               <input type={passwordShow ? "text" : "password"} className="input-pass" placeholder="Password" required value={password} onChange={e => setPassword(e.target.value)} />
-              <button type="button" className="btn-pass" onClick={togglePassword}><FiEye color="#000" /></button>
+              <button type="button" className="btn-pass" onClick={togglePassword}>
+                <FiEye color="#000" />
+              </button>
+            </div> */}
+
+            <div className="input-password">
+              <input type={values.showPassword ? "text" : "password"} className="input-pass" placeholder="Password" required value={password} onChange={e => setPassword(e.target.value)} />
+              <button type="button" className="btn-pass" onClick={handleClickShowPassword}>
+                {values.showPassword ? <FiEye color="#000" /> : <FiEyeOff color="#000" />}
+              </button>
             </div>
             <input type="text" placeholder="Photo" required value={photo} onChange={e => setPhoto(e.target.value)} />
 
